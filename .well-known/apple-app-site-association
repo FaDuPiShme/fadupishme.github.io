@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "R8AXC9986N.ru.perviigod.perviiGod"
+        ],
+        "components": [
+          {
+            "/": "/join*"
+          }
+        ]
+      }
+    ]
+  }
+}
