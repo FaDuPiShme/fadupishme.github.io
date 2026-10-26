@@ -11,13 +11,13 @@
 <body>
 <main>
 <h1>Privacy Policy</h1>
-<p class="date">“First Year: Baby Diary” (“Первый год: дневник малыша”) for Android and iPhone · version of 18 October 2026 · <a href="privacy.html">Русская версия</a></p>
+<p class="date">“First Year: Baby Diary” (“Первый год: дневник малыша”) for Android and iPhone · version of 26 October 2026 · <a href="privacy.html">Русская версия</a></p>
 
 <div class="card">
 <p><b>In short.</b> The diary is stored on your phone. The developer has no
 servers and does not receive your entries. If you turn on family sync, the
-entries are stored encrypted on <b>your own</b> Google Drive, and only your
-family's phones have the key. The app shows a Yandex ad banner: to show ads,
+entries are stored encrypted in <b>your own</b> cloud — Google Drive or
+Yandex Disk, your choice — and only your family's phones have the key. The app shows a Yandex ad banner: to show ads,
 Yandex receives technical device data.</p>
 </div>
 
@@ -60,7 +60,7 @@ folder:</p>
 storage (Android Keystore, Keychain on iPhone) that never leaves the phone —
 other apps cannot read them;</li>
 <li>they are not sent to the developer or other family members and are not
-included in sync, the app's backup or Google Drive;</li>
+included in sync, the app's backup or the cloud (Google Drive or Yandex Disk);</li>
 <li>on Android they are excluded from automatic backup to Google's cloud; on
 iPhone they may be included in the phone's backup only in encrypted form —
 the key is not copied to the backup, so they cannot be read from it;</li>
@@ -69,21 +69,47 @@ the key is not copied to the backup, so they cannot be read from it;</li>
 button.</li>
 </ul>
 
+<h2>2b. Photos for collages</h2>
+<p>In “More → Collage” you can make a collage of your child's photos
+(“First year”, “Firsts”, “Month”, “Heads”).</p>
+<ul>
+<li>You pick the photos yourself from the gallery. The app keeps reduced
+copies <b>only on your phone</b>, in the app's private folder; on Android
+this folder is excluded from automatic backup to Google's cloud. Photos are
+not sent to the developer and are not part of the diary sync.</li>
+<li>For the “Heads” template the child is cut out of the photo <b>right on
+the phone</b>: on Android with Google ML Kit (the model is installed by
+Google Play services), on iPhone with the built-in iOS Vision framework; the
+photos are not sent anywhere for this.</li>
+<li>A finished collage leaves the phone only when you tap “Share” and
+choose where to send it.</li>
+<li>They are deleted with “Remove photo” on a cell or together with the
+app.</li>
+</ul>
+
 <h2>3. Family sync (optional)</h2>
 <p>To let parents and relatives see a shared diary, you can turn on sync.
 Then:</p>
 <ul>
-<li>You sign in to your Google account and allow the app to access
+<li>Each member chooses where to keep their own file: on <b>Google Drive</b>
+or on <b>Yandex Disk</b>. Members of one family may use different clouds.</li>
+<li>Google: you sign in to your Google account and allow the app to access
 <b>only the files it created itself</b> (the <code>drive.file</code> scope).
 Other files on your Drive are not visible to the app.</li>
-<li>The app creates a file “Первый год — синхронизация” on your Google Drive
+<li>Yandex: you sign in with Yandex ID and allow the app to access <b>only
+its own folder</b> on Yandex Disk (“Apps/Первый год: дневник малыша”, the
+<code>cloud_api:disk.app_folder</code> scope). The rest of your Disk, your
+mail and profile data are neither visible nor requested. The access token is
+stored only on the phone, encrypted with a key from secure storage (Android
+Keystore / Keychain).</li>
+<li>The app creates a file “Первый год — синхронизация” in your cloud
 with your entries. Before upload the entries are <b>encrypted</b>
 (AES-256-GCM) with the family key. The file also contains (encrypted as well)
 the list of family members: the names or roles you entered (“Mom”,
 “Grandma Olga”), who the family administrator is and who has view-only
 access.</li>
 <li>The key is passed only via a QR code, an invitation code or link between
-your family's phones and is never sent to the developer or to Google. In an
+your family's phones and is never sent to the developer, Google or Yandex. In an
 invitation link the code comes after the “#” sign — this part of the address
 is not sent to the app's website when the link is opened.</li>
 <li>The file is shared “by link” so that your family's phones can download it
@@ -91,25 +117,28 @@ without signing in. Without the key its content cannot be read.</li>
 <li>If a family member deletes a baby profile, the other phones are notified
 and can delete it too or keep it (then the baby with all entries returns to
 the shared diary).</li>
-<li>The file is stored by Google under your Google account terms
-(<a href="https://policies.google.com/privacy?hl=en">Google Privacy Policy</a>).
-You can delete it in Google Drive and leave the family in the app
+<li>You can move your file to the other cloud (“More → Family → Move
+to…”): rights and entries stay the same, and the old file keeps updating for
+a while so the family learns the new address.</li>
+<li>The file is stored by Google or Yandex under your account terms
+(<a href="https://policies.google.com/privacy?hl=en">Google Privacy Policy</a>,
+<a href="https://yandex.com/legal/confidential/">Yandex Privacy Policy</a>).
+You can delete it in your Disk/Drive and leave the family in the app
 (“More → Family”).</li>
 </ul>
 
-<h2>3a. Backup to Google Drive (optional)</h2>
-<p>If you turn on “Daily backup to Google Drive”, once a day the app saves the
+<h2>3a. Cloud backup (optional)</h2>
+<p>If you turn on “Daily backup to the cloud”, once a day the app saves the
 whole diary to a file “Первый год — резервная копия” on <b>your</b> Google
-Drive. This file is <b>not shared by link</b> — only you can see it in your
+Drive or Yandex Disk (your choice). This file is <b>not shared by link</b> — only you can see it in your
 account, and you can restore the diary from it on a new phone. The developer
 has no access to it. You can turn the backup off in “More → Backup” and delete
-the file in Google Drive.</p>
+the file in your Drive/Disk.</p>
 
 <h2>3b. Google API disclosure</h2>
 <p>“First Year: Baby Diary” requests access to the Google Drive API only within
 the <code>https://www.googleapis.com/auth/drive.file</code> scope. This access is
-used solely to create and update the app's own encrypted sync and backup files
-on the user's personal Google Drive.</p>
+used solely to create and update the app's own encrypted sync and backup files on the user's personal Google Drive.</p>
 <ul>
 <li>The app does not request access to any other files, photos or documents on
 your Google Drive.</li>
@@ -119,6 +148,15 @@ targeting or for training artificial intelligence (AI) models.</li>
 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>,
 including the Limited Use requirements.</li>
 </ul>
+
+<h2>3c. Yandex Disk access</h2>
+<p>Signing in with Yandex ID is used only to work with the app's own folder on
+your Yandex Disk (the <code>cloud_api:disk.app_folder</code> scope): to create
+and update the encrypted sync file there, share it by link with your family's
+phones and save the backup. The app does not request your name, email, phone
+or other Yandex account data. The data is not transferred to the developer or
+third parties, sold, or used for advertising. You can revoke access in your
+Yandex account settings (“Logins and devices”).</p>
 
 <h2>4. Advertising</h2>
 <p>The app is free and shows a <b>Yandex Advertising Network</b> banner
@@ -147,10 +185,11 @@ created on the phone itself.</li>
 to photograph a child's document. A document photo is stored only in the
 encrypted “Documents” section (see 2a).</li>
 <li><b>Photos and files</b> — only when you pick a photo or PDF yourself to add
-a child's document, or a backup file to restore.</li>
+a child's document or a collage photo, or a backup file to restore.</li>
 <li><b>Microphone</b> — only if you record your own “shhh” for sleep sounds.
 The recording stays on the phone.</li>
-<li><b>Internet</b> — for family sync, Google Drive backup and ads. Without
+<li><b>Internet</b> — for family sync, cloud backup (Google Drive or Yandex
+Disk) and ads. Without
 internet the diary works fully.</li>
 <li><b>Background activity</b> — from time to time (on Android about every 15
 minutes, on iPhone when the system allows) to download new family entries and
@@ -160,7 +199,7 @@ show a notification; to keep playing sleep sounds with the screen off.</li>
 <h2>6. Children</h2>
 <p>The app is intended for adults — parents and caregivers. Information about
 the child is entered by an adult and stays on their phone (and, optionally,
-encrypted on their Google Drive).</p>
+encrypted on their Google Drive or Yandex Disk).</p>
 
 <h2>7. Changes</h2>
 <p>If this policy changes, the new version will appear on this page, and we
